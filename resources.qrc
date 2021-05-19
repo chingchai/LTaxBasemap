@@ -1,0 +1,45 @@
+<RCC>
+    <qresource prefix="/plugins/ltax_basemap_free" >
+        <file>icon.png</file>
+		<file>icons/dhanarak.jpg</file>
+		<file>icons/google_map.png</file>
+		<file>icons/google_map_icon.png</file>
+		<file>icons/google_satellite.png</file>
+		<file>icons/google_terrain.png</file>
+		<file>icons/icon.png</file>
+		<file>icons/ic_launcher.png</file>
+		<file>icons/imagery.png</file>
+		<file>icons/map1.jpeg</file>
+		<file>icons/map10.jpeg</file>
+		<file>icons/map11.jpeg</file>
+		<file>icons/map12.jpeg</file>
+		<file>icons/map13.jpeg</file>
+		<file>icons/map14.jpeg</file>
+		<file>icons/map15.jpeg</file>
+		<file>icons/map2.jpeg</file>
+		<file>icons/map3.jpeg</file>
+		<file>icons/map4.jpg</file>
+		<file>icons/map5.jpg</file>
+		<file>icons/map6.jpeg</file>
+		<file>icons/map7.jpg</file>
+		<file>icons/map8.jpg</file>
+		<file>icons/map9.jpeg</file>
+		<file>icons/osm.jpg</file>
+		<file>icons/osm2.jpeg</file>
+		<file>icons/Qpvre.jpg</file>
+		<file>icons/satellite.jpg</file>
+		<file>icons/satellite2.jpeg</file>
+		<file>icons/spk_logo.png</file>
+		<file>icons/streetnight_thumb_b2.jpg</file>
+		<file>icons/streetview.jpg</file>
+		<file>icons/streetview.png</file>
+		<file>icons/street_map.jpg</file>
+		<file>icons/terrain1.jpg</file>
+		<file>icons/topo.jpg</file>
+		<file>icons/rtsd.png</file>
+		<file>icons/rtsd2.jpg</file>
+    </qresource>
+</RCC>
+
+
+

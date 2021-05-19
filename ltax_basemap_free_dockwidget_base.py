@@ -1,0 +1,116 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'ltax_basemap_free_dockwidget_base.ui'
+#
+# Created by: PyQt5 UI code generator 5.11.3
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_LTaxBasemapFreeDockWidgetBase(object):
+    def setupUi(self, LTaxBasemapFreeDockWidgetBase):
+        LTaxBasemapFreeDockWidgetBase.setObjectName("LTaxBasemapFreeDockWidgetBase")
+        LTaxBasemapFreeDockWidgetBase.resize(298, 190)
+        self.dockWidgetContents = QtWidgets.QWidget()
+        self.dockWidgetContents.setObjectName("dockWidgetContents")
+        self.gridLayout = QtWidgets.QGridLayout(self.dockWidgetContents)
+        self.gridLayout.setObjectName("gridLayout")
+        self.tabWidget = QtWidgets.QTabWidget(self.dockWidgetContents)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tabWidget.sizePolicy().hasHeightForWidth())
+        self.tabWidget.setSizePolicy(sizePolicy)
+        self.tabWidget.setMinimumSize(QtCore.QSize(280, 150))
+        self.tabWidget.setObjectName("tabWidget")
+        self.tab = QtWidgets.QWidget()
+        self.tab.setObjectName("tab")
+        self.label = QtWidgets.QLabel(self.tab)
+        self.label.setGeometry(QtCore.QRect(10, 10, 46, 13))
+        self.label.setObjectName("label")
+        self.comboBox = QtWidgets.QComboBox(self.tab)
+        self.comboBox.setGeometry(QtCore.QRect(10, 30, 241, 31))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.comboBox.sizePolicy().hasHeightForWidth())
+        self.comboBox.setSizePolicy(sizePolicy)
+        self.comboBox.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.comboBox.setIconSize(QtCore.QSize(32, 32))
+        self.comboBox.setObjectName("comboBox")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/plugins/ltax_basemap_free/icons/imagery.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.comboBox.addItem(icon, "")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/plugins/ltax_basemap_free/icons/map11.jpeg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.comboBox.addItem(icon1, "")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/plugins/ltax_basemap_free/icons/terrain1.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.comboBox.addItem(icon2, "")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/plugins/ltax_basemap_free/icons/map7.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.comboBox.addItem(icon3, "")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/plugins/ltax_basemap_free/icons/satellite2.jpeg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.comboBox.addItem(icon4, "")
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap(":/plugins/ltax_basemap_free/icons/osm2.jpeg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.comboBox.addItem(icon5, "")
+        self.btnLoad = QtWidgets.QPushButton(self.tab)
+        self.btnLoad.setGeometry(QtCore.QRect(10, 70, 241, 31))
+        self.btnLoad.setObjectName("btnLoad")
+        self.tabWidget.addTab(self.tab, "")
+        self.tab_2 = QtWidgets.QWidget()
+        self.tab_2.setObjectName("tab_2")
+        self.label_2 = QtWidgets.QLabel(self.tab_2)
+        self.label_2.setGeometry(QtCore.QRect(20, 10, 231, 41))
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        self.label_2.setFont(font)
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(self.tab_2)
+        self.label_3.setGeometry(QtCore.QRect(10, 60, 251, 20))
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setObjectName("label_3")
+        self.label_4 = QtWidgets.QLabel(self.tab_2)
+        self.label_4.setGeometry(QtCore.QRect(70, 90, 131, 16))
+        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_4.setObjectName("label_4")
+        self.tabWidget.addTab(self.tab_2, "")
+        self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
+        LTaxBasemapFreeDockWidgetBase.setWidget(self.dockWidgetContents)
+
+        self.retranslateUi(LTaxBasemapFreeDockWidgetBase)
+        self.tabWidget.setCurrentIndex(0)
+        QtCore.QMetaObject.connectSlotsByName(LTaxBasemapFreeDockWidgetBase)
+
+    def retranslateUi(self, LTaxBasemapFreeDockWidgetBase):
+        _translate = QtCore.QCoreApplication.translate
+        LTaxBasemapFreeDockWidgetBase.setWindowTitle(_translate("LTaxBasemapFreeDockWidgetBase", "LTax Basemap Free."))
+        self.label.setText(_translate("LTaxBasemapFreeDockWidgetBase", "Basemap :"))
+        self.comboBox.setItemText(0, _translate("LTaxBasemapFreeDockWidgetBase", "Google Satellite Map"))
+        self.comboBox.setItemText(1, _translate("LTaxBasemapFreeDockWidgetBase", "Google Hybrid Map"))
+        self.comboBox.setItemText(2, _translate("LTaxBasemapFreeDockWidgetBase", "Google Terrian"))
+        self.comboBox.setItemText(3, _translate("LTaxBasemapFreeDockWidgetBase", "ESRI Topo Map"))
+        self.comboBox.setItemText(4, _translate("LTaxBasemapFreeDockWidgetBase", "ESRI Satellite Map"))
+        self.comboBox.setItemText(5, _translate("LTaxBasemapFreeDockWidgetBase", "Open Street Map"))
+        self.btnLoad.setText(_translate("LTaxBasemapFreeDockWidgetBase", "Load"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("LTaxBasemapFreeDockWidgetBase", "LTax Basemap free."))
+        self.label_2.setText(_translate("LTaxBasemapFreeDockWidgetBase", "<html><head/><body><p>LTax BaseMap Free.</p></body></html>"))
+        self.label_3.setText(_translate("LTaxBasemapFreeDockWidgetBase", "by Attagorn Srinarong (TongzGIS)"))
+        self.label_4.setText(_translate("LTaxBasemapFreeDockWidgetBase", "Line ID: attagorn"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("LTaxBasemapFreeDockWidgetBase", "About"))
+
+from .resources import *
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    LTaxBasemapFreeDockWidgetBase = QtWidgets.QDockWidget()
+    ui = Ui_LTaxBasemapFreeDockWidgetBase()
+    ui.setupUi(LTaxBasemapFreeDockWidgetBase)
+    LTaxBasemapFreeDockWidgetBase.show()
+    sys.exit(app.exec_())
+
