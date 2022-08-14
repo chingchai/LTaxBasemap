@@ -34,7 +34,7 @@
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
-        <string>LTax Basemap free.</string>
+        <string>LTax Basemap free.(20220814)</string>
        </attribute>
        <widget class="QLabel" name="label">
         <property name="geometry">
@@ -69,62 +69,350 @@
         </property>
         <property name="iconSize">
          <size>
-          <width>32</width>
-          <height>32</height>
+          <width>24</width>
+          <height>24</height>
          </size>
         </property>
         <item>
          <property name="text">
-          <string>Google Satellite Map</string>
+          <string>รูปแปลงกรมที่ดิน (1)</string>
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/plugins/ltax_basemap_free/icons/imagery.png</normaloff>:/plugins/ltax_basemap_free/icons/imagery.png</iconset>
+           <normaloff>:/plugins/ltax_basemap_free/icons/ic_launcher.png</normaloff>:/plugins/ltax_basemap_free/icons/ic_launcher.png</iconset>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Google Hybrid Map</string>
+          <string>รูปแปลงกรมที่ดิน (2)</string>
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/plugins/ltax_basemap_free/icons/map11.jpeg</normaloff>:/plugins/ltax_basemap_free/icons/map11.jpeg</iconset>
+           <normaloff>:/plugins/ltax_basemap_free/icons/ic_launcher.png</normaloff>:/plugins/ltax_basemap_free/icons/ic_launcher.png</iconset>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Google Terrian</string>
+          <string>Google Maps</string>
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/plugins/ltax_basemap_free/icons/terrain1.jpg</normaloff>:/plugins/ltax_basemap_free/icons/terrain1.jpg</iconset>
+           <normaloff>:/plugins/ltax_basemap_free/icons/google_map_icon.png</normaloff>:/plugins/ltax_basemap_free/icons/google_map_icon.png</iconset>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>ESRI Topo Map</string>
+          <string>Google Satellite</string>
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/plugins/ltax_basemap_free/icons/map7.jpg</normaloff>:/plugins/ltax_basemap_free/icons/map7.jpg</iconset>
+           <normaloff>:/plugins/ltax_basemap_free/icons/google_map_icon.png</normaloff>:/plugins/ltax_basemap_free/icons/google_map_icon.png</iconset>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>ESRI Satellite Map</string>
+          <string>Google Hybrid</string>
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/plugins/ltax_basemap_free/icons/satellite2.jpeg</normaloff>:/plugins/ltax_basemap_free/icons/satellite2.jpeg</iconset>
+           <normaloff>:/plugins/ltax_basemap_free/icons/google_map_icon.png</normaloff>:/plugins/ltax_basemap_free/icons/google_map_icon.png</iconset>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Open Street Map</string>
+          <string>Google Hybrid Traffic</string>
          </property>
          <property name="icon">
           <iconset resource="resources.qrc">
-           <normaloff>:/plugins/ltax_basemap_free/icons/osm2.jpeg</normaloff>:/plugins/ltax_basemap_free/icons/osm2.jpeg</iconset>
+           <normaloff>:/plugins/ltax_basemap_free/icons/google_map_icon.png</normaloff>:/plugins/ltax_basemap_free/icons/google_map_icon.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Google Terrain Hybrid</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/google_map_icon.png</normaloff>:/plugins/ltax_basemap_free/icons/google_map_icon.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>L02_base_mo_Thailand_GISTDA_2m</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/gistda.png</normaloff>:/plugins/ltax_basemap_free/icons/gistda.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>LDD RASTER</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/ldd.png</normaloff>:/plugins/ltax_basemap_free/icons/ldd.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>LDD Landuse</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/ldd.png</normaloff>:/plugins/ltax_basemap_free/icons/ldd.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>LDD Orthophoto 2545</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/ldd.png</normaloff>:/plugins/ltax_basemap_free/icons/ldd.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Stamen Terrain</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/stamen_terrain.png</normaloff>:/plugins/ltax_basemap_free/icons/stamen_terrain.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Stamen Toner</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/Stamen_toner.png</normaloff>:/plugins/ltax_basemap_free/icons/Stamen_toner.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Stamen Watercolor</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/map15.jpeg</normaloff>:/plugins/ltax_basemap_free/icons/map15.jpeg</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Wikimedia Map</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/wikimedia.png</normaloff>:/plugins/ltax_basemap_free/icons/wikimedia.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Wikimedia Hike Bike Map</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/wikimedia.png</normaloff>:/plugins/ltax_basemap_free/icons/wikimedia.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Esri Boundaries Places</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Esri Gray (dark)</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Esri Gray (light)</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Esri National Geographic</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Esri Ocean</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Esri Satellite</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Esri Standard</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Esri Terrain</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Esri Transportation</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Esri Topo World</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</normaloff>:/plugins/ltax_basemap_free/icons/esri3.gif</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>OpenStreetMap Standard</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/osm.png</normaloff>:/plugins/ltax_basemap_free/icons/osm.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>OpenStreetMap H.O.T.</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/osm.png</normaloff>:/plugins/ltax_basemap_free/icons/osm.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>OpenStreetMap Monochrome</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/osm.png</normaloff>:/plugins/ltax_basemap_free/icons/osm.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>OpenTopoMap</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/osm.png</normaloff>:/plugins/ltax_basemap_free/icons/osm.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Strava All</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/strava.png</normaloff>:/plugins/ltax_basemap_free/icons/strava.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Strava Run</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/strava.png</normaloff>:/plugins/ltax_basemap_free/icons/strava.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Open Weather Map Temperature</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/openwheatermap.png</normaloff>:/plugins/ltax_basemap_free/icons/openwheatermap.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Open Weather Map Clouds</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/openwheatermap.png</normaloff>:/plugins/ltax_basemap_free/icons/openwheatermap.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Open Weather Map Wid Speed</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/openwheatermap.png</normaloff>:/plugins/ltax_basemap_free/icons/openwheatermap.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>CartoDb Dark Matter</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/cartodb.png</normaloff>:/plugins/ltax_basemap_free/icons/cartodb.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>CartoDb Positron</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/cartodb.png</normaloff>:/plugins/ltax_basemap_free/icons/cartodb.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Bing VirtualEarth</string>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/plugins/ltax_basemap_free/icons/bing.png</normaloff>:/plugins/ltax_basemap_free/icons/bing.png</iconset>
          </property>
         </item>
        </widget>
@@ -150,7 +438,7 @@
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>10</y>
+          <y>0</y>
           <width>231</width>
           <height>41</height>
          </rect>
@@ -161,7 +449,7 @@
          </font>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;LTax BaseMap Free.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href='http://www.thaisarabun.com/gistool/'&gt;LTax BaseMap Free.&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -186,14 +474,14 @@
        <widget class="QLabel" name="label_4">
         <property name="geometry">
          <rect>
-          <x>70</x>
+          <x>30</x>
           <y>90</y>
-          <width>131</width>
+          <width>211</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>Line ID: attagorn</string>
+         <string>Line ID: attagorn, Mobile: 085-4885780</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>

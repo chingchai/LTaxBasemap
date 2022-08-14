@@ -15,32 +15,18 @@
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
-# Initialize Qt resources from file resources.py
 from .resources import *
 
-# Import the code for the DockWidget
 from .ltax_basemap_free_dockwidget import LTaxBasemapFreeDockWidget
 import os.path
 from qgis.core import *
 
 class LTaxBasemapFree:
-    """QGIS Plugin Implementation."""
 
     def __init__(self, iface):
-        """Constructor.
 
-        :param iface: An interface instance that will be passed to this class
-            which provides the hook by which you can manipulate the QGIS
-            application at run time.
-        :type iface: QgsInterface
-        """
-        # Save reference to the QGIS interface
         self.iface = iface
-
-        # initialize plugin directory
         self.plugin_dir = os.path.dirname(__file__)
-
-        # initialize locale
         locale = QSettings().value('locale/userLocale')[0:2]
         locale_path = os.path.join(
             self.plugin_dir,
@@ -52,34 +38,17 @@ class LTaxBasemapFree:
             self.translator.load(locale_path)
             QCoreApplication.installTranslator(self.translator)
 
-        # Declare instance attributes
         self.actions = []
         self.menu = self.tr(u'&LTax Basemap Free')
-        # TODO: We are going to let the user set this up in a future iteration
         self.toolbar = self.iface.addToolBar(u'LTaxBasemapFree')
         self.toolbar.setObjectName(u'LTaxBasemapFree')
 
-        #print "** INITIALIZING LTaxBasemapFree"
 
         self.pluginIsActive = False
         self.dockwidget = None
 
-
-    # noinspection PyMethodMayBeStatic
     def tr(self, message):
-        """Get the translation for a string using Qt translation API.
-
-        We implement this ourselves since we do not inherit QObject.
-
-        :param message: String for translation.
-        :type message: str, QString
-
-        :returns: Translated version of message.
-        :rtype: QString
-        """
-        # noinspection PyTypeChecker,PyArgumentList,PyCallByClass
         return QCoreApplication.translate('LTaxBasemapFree', message)
-
 
     def add_action(
         self,
@@ -92,44 +61,6 @@ class LTaxBasemapFree:
         status_tip=None,
         whats_this=None,
         parent=None):
-        """Add a toolbar icon to the toolbar.
-
-        :param icon_path: Path to the icon for this action. Can be a resource
-            path (e.g. ':/plugins/foo/bar.png') or a normal file system path.
-        :type icon_path: str
-
-        :param text: Text that should be shown in menu items for this action.
-        :type text: str
-
-        :param callback: Function to be called when the action is triggered.
-        :type callback: function
-
-        :param enabled_flag: A flag indicating if the action should be enabled
-            by default. Defaults to True.
-        :type enabled_flag: bool
-
-        :param add_to_menu: Flag indicating whether the action should also
-            be added to the menu. Defaults to True.
-        :type add_to_menu: bool
-
-        :param add_to_toolbar: Flag indicating whether the action should also
-            be added to the toolbar. Defaults to True.
-        :type add_to_toolbar: bool
-
-        :param status_tip: Optional text to show in a popup when mouse pointer
-            hovers over the action.
-        :type status_tip: str
-
-        :param parent: Parent widget for the new action. Defaults None.
-        :type parent: QWidget
-
-        :param whats_this: Optional text to show in the status bar when the
-            mouse pointer hovers over the action.
-
-        :returns: The action that was created. Note that the action is also
-            added to self.actions list.
-        :rtype: QAction
-        """
 
         icon = QIcon(icon_path)
         action = QAction(icon, text, parent)
@@ -156,7 +87,6 @@ class LTaxBasemapFree:
 
 
     def initGui(self):
-        """Create the menu entries and toolbar icons inside the QGIS GUI."""
 
         icon_path = ':/plugins/ltax_basemap_free/icon.png'
         self.add_action(
@@ -164,30 +94,25 @@ class LTaxBasemapFree:
             text=self.tr(u'LTax Basemap free'),
             callback=self.run,
             parent=self.iface.mainWindow())
-
-    #--------------------------------------------------------------------------
+        self.run()
 
     def onClosePlugin(self):
-        """Cleanup necessary items here when plugin dockwidget is closed"""
         self.dockwidget.closingPlugin.disconnect(self.onClosePlugin)
         self.pluginIsActive = False
 
 
     def unload(self):
-        """Removes the plugin menu item and icon from QGIS GUI."""
 
         for action in self.actions:
             self.iface.removePluginMenu(
                 self.tr(u'&LTax Basemap Free'),
                 action)
             self.iface.removeToolBarIcon(action)
-        # remove the toolbar
         del self.toolbar
 
     #--------------------------------------------------------------------------
 
     def run(self):
-        """Run method that loads and starts the plugin"""
 
         if not self.pluginIsActive:
             self.pluginIsActive = True
@@ -202,32 +127,81 @@ class LTaxBasemapFree:
 
     def loadmap(self):
         maps = []
-        maps.append([u'Open Street Map','https://b.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png','xyz'])
-        maps.append([u'Google Terrian','https://mt1.google.com/vt/lyrs%3Dp%2Ctraffic%26z%3D%7Bz%7D%26x%3D%7Bx%7D%26y%3D%7By%7D%26hl%3Dth','xyz'])
-        maps.append([u'Google Satellite Map','https://mt1.google.com/vt/lyrs%3Ds%26x%3D%7Bx%7D%26y%3D%7By%7D%26z%3D%7Bz%7D&hl=th','xyz'])
-        maps.append([u'Google Hybrid Map','https://mt1.google.com/vt/lyrs%3Dy%26x%3D%7Bx%7D%26y%3D%7By%7D%26z%3D%7Bz%7D&hl=th','xyz'])
-        maps.append([u'ESRI Topo Map','https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D','xyz'])
-        maps.append([u'ESRI Satellite Map','https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D','xyz'])
+        maps.append([u'รูปแปลงกรมที่ดิน (1)','crs=EPSG:4326&dpiMode=7&format=image/png&layers=MV_SPARCEL&styles&url=http://110.164.49.72:8081/geoserver/WMSDOL/wms?VERSION%3D1.1.1%26LAYERS%3DWMSDOL:MV_SPARCEL%26SRS%3DEPSG:24047','wms',"19","0"])
+        maps.append([u'รูปแปลงกรมที่ดิน (2)','crs=EPSG:4326&dpiMode=7&format=image/png&layers=MV_SPARCEL&styles&url=http://110.164.49.68:8081/geoserver/WMSDOL/wms?VERSION%3D1.1.1%26LAYERS%3DWMSDOL:MV_SPARCEL%26SRS%3DEPSG:24047','wms',"19","0"])
+        maps.append([u"Google Maps","https://mt1.google.com/vt/lyrs%3Dm%2Ctraffic%26z%3D%7Bz%7D%26x%3D%7Bx%7D%26y%3D%7By%7D%26hl%3Dth","xyz","19","0"])
+        maps.append([u"Google Satellite","https://mt1.google.com/vt/lyrs%3Ds%26x%3D%7Bx%7D%26y%3D%7By%7D%26z%3D%7Bz%7D&hl=th","xyz","19","0"])
+        maps.append([u"Google Terrain Hybrid","https://mt1.google.com/vt/lyrs%3Dp%2Ctraffic%26z%3D%7Bz%7D%26x%3D%7Bx%7D%26y%3D%7By%7D%26hl%3Dth","xyz","19","0"])
+        maps.append([u"Google Hybrid","https://mt1.google.com/vt/lyrs%3Dy%2Ctraffic%26z%3D%7Bz%7D%26x%3D%7Bx%7D%26y%3D%7By%7D%26hl%3Dth","xyz","19","0"])
+        maps.append([u"Google Hybrid Traffic","https://mt1.google.com/vt/lyrs%3Dy%2Ctraffic%26z%3D%7Bz%7D%26x%3D%7Bx%7D%26y%3D%7By%7D%26hl%3Dth","xyz","19","0"])
+        maps.append([u"Stamen Terrain","http://tile.stamen.com/terrain/%7Bz%7D/%7Bx%7D/%7By%7D.png","xyz","19","0"])
+        maps.append([u"Stamen Toner","http://tile.stamen.com/toner/%7Bz%7D/%7Bx%7D/%7By%7D.png","xyz","19","0"])
+        maps.append([u"Stamen Toner Light","http://tile.stamen.com/toner-lite/%7Bz%7D/%7Bx%7D/%7By%7D.png","xyz","19","0"])
+        maps.append([u"Stamen Watercolor","http://tile.stamen.com/watercolor/%7Bz%7D/%7Bx%7D/%7By%7D.jpg","xyz","19","0"])
+        maps.append([u"Wikimedia Map","https://maps.wikimedia.org/osm-intl/%7Bz%7D/%7Bx%7D/%7By%7D.png","xyz","19","0"])
+        maps.append([u"Wikimedia Hike Bike Map","http://tiles.wmflabs.org/hikebike/%7Bz%7D/%7Bx%7D/%7By%7D.png","xyz","19","0"])
+        maps.append([u"Esri Boundaries Places","https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D","xyz","19","0"])
+        maps.append([u"Esri Gray (dark)","http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D","xyz","19","0"])
+        maps.append([u"Esri Gray (light)","http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D","xyz","19","0"])
+        maps.append([u"Esri National Geographic","http://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D","xyz","19","0"])
+        maps.append([u"Esri Ocean","https://services.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D","xyz","19","0"])
+        maps.append([u"Esri Satellite","https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D","xyz","19","0"])
+        maps.append([u"Esri Standard","https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D","xyz","19","0"])
+        maps.append([u"Esri Terrain","https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D","xyz","19","0"])
+        maps.append([u"Esri Transportation","https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D","xyz","19","0"])
+        maps.append([u"Esri Topo World","http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D","xyz","19","0"])
+        maps.append([u"OpenStreetMap Standard","http://tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png","xyz","19","0"])
+        maps.append([u"OpenStreetMap H.O.T.","http://tile.openstreetmap.fr/hot/%7Bz%7D/%7Bx%7D/%7By%7D.png","xyz","19","0"])
+        maps.append([u"OpenStreetMap Monochrome","http://tiles.wmflabs.org/bw-mapnik/%7Bz%7D/%7Bx%7D/%7By%7D.png","xyz","19","0"])
+        maps.append([u"OpenTopoMap","https://tile.opentopomap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png","xyz","19","0"])
+        maps.append([u"Strava All","https://heatmap-external-b.strava.com/tiles/all/bluered/%7Bz%7D/%7Bx%7D/%7By%7D.png","xyz","19","0"])
+        maps.append([u"Strava Run","https://heatmap-external-b.strava.com/tiles/run/bluered/%7Bz%7D/%7Bx%7D/%7By%7D.png?v=19","xyz","19","0"])
+        maps.append([u"Open Weather Map Temperature","http://tile.openweathermap.org/map/temp_new/%7Bz%7D/%7Bx%7D/%7By%7D.png?APPID=1c3e4ef8e25596946ee1f3846b53218a","xyz","19","0"])
+        maps.append([u"Open Weather Map Clouds","http://tile.openweathermap.org/map/clouds_new/%7Bz%7D/%7Bx%7D/%7By%7D.png?APPID=ef3c5137f6c31db50c4c6f1ce4e7e9dd","xyz","19","0"])
+        maps.append([u"Open Weather Map Wind Speed","http://tile.openweathermap.org/map/wind_new/%7Bz%7D/%7Bx%7D/%7By%7D.png?APPID=f9d0069aa69438d52276ae25c1ee9893","xyz","19","0"])
+        maps.append([u"CartoDb Dark Matter","http://basemaps.cartocdn.com/dark_all/%7Bz%7D/%7Bx%7D/%7By%7D.png","xyz","19","0"])
+        maps.append([u"CartoDb Positron","http://basemaps.cartocdn.com/light_all/%7Bz%7D/%7Bx%7D/%7By%7D.png","xyz","19","0"])
+        maps.append([u"Bing VirtualEarth","http://ecn.t3.tiles.virtualearth.net/tiles/a{q}.jpeg?g=1","xyz","19","0"])
+        maps.append([u"L02_base_mo_Thailand_GISTDA_2m","https://gistdaportal.gistda.or.th/data/rest/services/L02_base/mo_Thailand_GISTDA_2m/ImageServer/WMTS/tile/1.0.0/L02_base_mo_Thailand_GISTDA_2m/default/default028mm/%7Bz%7D/%7By%7D/%7Bx%7D","xyz", "23","0"])
+        maps.append([u"LDD RASTER","crs='EPSG:3857' format='PNG24' layer='0' url='http://eis.ldd.go.th/ArcGIS/rest/services/LDD_RASTER_WM_CACHE/MapServer' table='' sql=''", "arcgis", "17", "0"])
+        maps.append([u"LDD Landuse","http://eis.ldd.go.th/ArcGIS/rest/services/LDD_LU_WM_CACHE/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D","xyz","19","0"])
+        maps.append([u"LDD Orthophoto 2545","http://eis.ldd.go.th/ArcGIS/rest/services/LDD_RASTER_WM_CACHE/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D","xyz","19","0"])
 
         smap = self.dockwidget.comboBox.currentText()
-        print(smap)
+        # print(smap)
+        
         for amap in maps:
+            zmax = amap[3];
+            zmin = amap[4];
             if smap == amap[0]:
                 print(amap[0], amap[1])
                 if amap[2] == 'xyz':
-                    self.create_xyz(amap[1], amap[0])
+                    self.create_xyz(amap[1], amap[0], zmax, zmin)
                 elif amap[2] == 'wms':
-                    self.create_wms(amap[1], amap[0])
+                    self.create_wms(amap[1], amap[0], zmax, zmin)
                 elif amap[2] == 'arcgis':
-                    self.create_arcgis(amap[1], amap[0])
+                    self.create_arcgis(amap[1], amap[0], zmax, zmin)
                 return
 
-    def create_xyz(self, url_path, map_name):
+    def create_xyz(self, url_path, map_name, zmax, zmin):
 
-        rlayer = QgsRasterLayer('type=xyz&url='+url_path+'&zmax=19&zmin=0',map_name,'wms')
+        rlayer = QgsRasterLayer('type=xyz&url='+url_path+'&zmax='+zmax+'&zmin='+zmin,map_name,'wms')
         if rlayer.isValid():
-
             QgsProject.instance().addMapLayer(rlayer)
         else:
             print(u'โหลด wms' + map_name + ' ไม่ได้!!!')
 
+    def create_wms(self, url_path, map_name, zmax, zmin):
+        rlayer = QgsRasterLayer(url_path, map_name, 'wms')
+        if rlayer.isValid():
+          
+            QgsProject.instance().addMapLayer(rlayer)
+        else:  print(u'โหลด ' + map_name + ' ไม่ได้!!!')
+
+    def create_arcgis(self, url_path, map_name, zmax, zmin):
+        print(map_name, url_path, zmax, zmin)
+        rlayer = QgsRasterLayer(url_path, map_name, 'arcgismapserver')
+        if rlayer.isValid():
+            QgsProject.instance().addMapLayer(rlayer)
+        else:
+            print(u'โหลด ' + map_name + ' ไม่ได้!!!')
